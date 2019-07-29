@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import axios from "axios";
 
 class BlogOne extends Component {
-    state = {
-        data: [],
-        local: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: [],
+            local: []
+        }
     }
     componentDidMount() {
         this.getBlogData();
@@ -22,19 +25,29 @@ class BlogOne extends Component {
     getId = (res) => {
         let final = [];
         for (let key of res) {
-            final.push(key._id)
+            final.push(key)
         }
         this.setState({
             local: final
         })
-        console.log(this.state.local)
     }
-    consoleFunc = () => (
-        <h1>{
-            this.state.local.map(res => {
-                return res
-            })
-        }</h1>
+    blogMapper = (res) => (
+        <div className="col-lg-4 col-md-6">
+            <div className="single-blog-post">
+                <a href="#" className="post-image">
+                    <img src={require('../../images/blog-img1.jpg')} alt="blog-image" />
+                </a>
+                <div className="blog-post-content">
+                    <ul>
+                        <li><i className="icofont-user-male"></i> <a href="#">Admin</a></li>
+                        <li><i className="icofont-wall-clock"></i> January 23, 2019</li>
+                    </ul>
+                    <h3><a href="#">The Most Popular New Business Apps</a></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi turpis massa, dapibus nec libero vitae.</p>
+                    <a href="#" className="read-more-btn">Read More <i className="icofont-rounded-double-right"></i></a>
+                </div>
+            </div>
+        </div>
     )
 
     render() {
@@ -42,8 +55,15 @@ class BlogOne extends Component {
             <section className="blog-area blog-section ptb-100">
                 <div className="container">
                     <div className="row">
-                        {this.consoleFunc()}
-                        <div className="col-lg-4 col-md-6">
+                        {/* {this.state.local.map(res => {
+                            this.blogMapper(res)
+                        })} */}
+                        {/* {for(let key in this.state.local){
+                            console.log(key)
+                        }} */}
+                        {this.blogMapper()}
+
+                        {/* <div className="col-lg-4 col-md-6">
                             <div className="single-blog-post">
                                 <a href="#" className="post-image">
                                     <img src={require('../../images/blog-img1.jpg')} alt="blog-image" />
@@ -59,7 +79,7 @@ class BlogOne extends Component {
                                     <a href="#" className="read-more-btn">Read More <i className="icofont-rounded-double-right"></i></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
 
                         {/* <div className="col-lg-12 col-md-12">

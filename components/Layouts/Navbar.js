@@ -1,174 +1,167 @@
-import React from 'react';
-import { withRouter } from 'next/router';
-import Link from '../../utils/ActiveLink';
-import SideDrawer from './SideDrawer';
-import SearchForm from './SearchForm';
+import React from "react";
+import { withRouter } from "next/router";
+import Link from "../../utils/ActiveLink";
+import SideDrawer from "./SideDrawer";
+import SearchForm from "./SearchForm";
 
 class Navbar extends React.Component {
-    _isMounted = false;
+  _isMounted = false;
 
-    state = {
-        drawer: false,
-        searchForm: false,
-        collapsed: true,
-    };
+  state = {
+    drawer: false,
+    searchForm: false,
+    collapsed: true
+  };
 
-    toggleNavbar = () => {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        });
+  toggleNavbar = () => {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  };
+
+  handleDrawer = () => {
+    this.setState(prevState => {
+      return {
+        drawer: !prevState.drawer
+      };
+    });
+  };
+
+  handleSearchForm = () => {
+    this.setState(prevState => {
+      return {
+        searchForm: !prevState.searchForm
+      };
+    });
+  };
+
+  componentDidMount() {
+    this._isMounted = true;
+    let elementId = document.getElementById("navbar");
+    document.addEventListener("scroll", () => {
+      if (window.scrollY > 170) {
+        elementId.classList.add("is-sticky");
+      } else {
+        elementId.classList.remove("is-sticky");
+      }
+    });
+    window.scrollTo(0, 0);
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
+  render() {
+    let { pathname } = this.props.router;
+
+    let layOutCls = "";
+    let logo = require("../../images/logo.png");
+    if (pathname == "/home-three") {
+      layOutCls = "marketing-navbar";
+      logo = require("../../images/logo2.png");
     }
 
-    handleDrawer = () => {
-        this.setState(prevState => {
-            return {
-                drawer: !prevState.drawer
-            };
-        });
-    }
+    const { collapsed } = this.state;
+    const classOne = collapsed
+      ? "collapse navbar-collapse"
+      : "collapse navbar-collapse show";
+    const classTwo = collapsed
+      ? "navbar-toggler navbar-toggler-right collapsed"
+      : "navbar-toggler navbar-toggler-right";
 
-    handleSearchForm = () => {
-        this.setState(prevState => {
-            return {
-                searchForm: !prevState.searchForm
-            };
-        });
-    }
+    return (
+      <React.Fragment>
+        <header id="header">
+          <div id="navbar" className={`crake-nav ${layOutCls}`}>
+            <div className="container">
+              <nav className="navbar navbar-expand-md navbar-light">
+                <Link href="/">
+                  <a className="navbar-brand">
+                    <img src={logo} alt="logo" />
+                  </a>
+                </Link>
 
-    componentDidMount() {
-        this._isMounted = true;
-        let elementId = document.getElementById("navbar");
-        document.addEventListener("scroll", () => {
-            if (window.scrollY > 170) {
-                elementId.classList.add("is-sticky");
-            } else {
-                elementId.classList.remove("is-sticky");
-            }
-        });
-        window.scrollTo(0, 0);
-    }
+                <button
+                  onClick={this.toggleNavbar}
+                  className={classTwo}
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span className="navbar-toggler-icon" />
+                </button>
 
-    componentWillUnmount() {
-        this._isMounted = false;
-    }
-
-    render() {
-        let { pathname } = this.props.router;
-
-        let layOutCls = '';
-        let logo = require('../../images/logo.png');
-        if (pathname == '/home-three') {
-            layOutCls = 'marketing-navbar';
-            logo = require('../../images/logo2.png');
-        }
-
-        const { collapsed } = this.state;
-        const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
-        const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
-
-        return (
-            <React.Fragment>
-                <header id="header">
-                    <div id="navbar" className={`crake-nav ${layOutCls}`}>
-                        <div className="container">
-                            <nav className="navbar navbar-expand-md navbar-light">
-                                <Link href="/">
-                                    <a className="navbar-brand">
-                                        <img src={logo} alt="logo" />
-                                    </a>
-                                </Link>
-
-                                <button
-                                    onClick={this.toggleNavbar}
-                                    className={classTwo}
-                                    type="button"
-                                    data-toggle="collapse"
-                                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false"
-                                    aria-label="Toggle navigation"
-                                >
-                                    <span className="navbar-toggler-icon"></span>
-                                </button>
-
-                                <div className={classOne} id="navbarSupportedContent">
-                                    <ul className="navbar-nav nav ml-auto">
-                                        <li className="nav-item">
-                                            <Link activeClassName="active" href="/index">
-                                                <a className="nav-link">Home</a>
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link activeClassName="active" href="/services">
-                                                <a className="nav-link">Who We Serve</a>
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link activeClassName="active" href="/features">
-                                                <a className="nav-link">Our Technology Focus</a>
-                                            </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link activeClassName="active" href="#">
-                                                <a className="nav-link">Discover</a>
-                                            </Link>
-                                            <ul className="dropdown_menu">
-                                                <li>
-                                                    <Link activeClassName="active" href="/about-one">
-                                                        <a>About</a>
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link activeClassName="active" href="/team-one">
-                                                        <a>Leadership</a>
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link activeClassName="active" href="/team-two">
-                                                        <a>Partner</a>
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link activeClassName="active" href="/pricing-three">
-                                                        <a>Career</a>
-                                                    </Link>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link activeClassName="active" href="#">
-                                                <a className="nav-link">Resource</a>
-                                            </Link>
-                                            <ul className="dropdown_menu">
-                                                <li>
-                                                    <Link activeClassName="active" href="/blog-one">
-                                                        <a>Blog</a>
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link activeClassName="active" href="#">
-                                                        <a>Case Study</a>
-                                                    </Link>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link activeClassName="active" href="#">
-                                                <a className="nav-link">Discover</a>
-                                            </Link>
-                                            <ul className="dropdown_menu">
-                                                <li>
-                                                    <Link activeClassName="active" href="/about-one">
-                                                        <a>About</a>
-                                                    </Link>
-                                                </li>
-                                                <li>
-                                                    <Link activeClassName="active" href="#">
-                                                        <a>Leadership</a>
-                                                    </Link>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        {/* <li className="nav-item"><a href="#" className="nav-link">Pages</a>
+                <div className={classOne} id="navbarSupportedContent">
+                  <ul className="navbar-nav nav ml-auto">
+                    <li className="nav-item">
+                      <Link activeClassName="active" href="/index">
+                        <a className="nav-link">Home</a>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link activeClassName="active" href="/who-we-serve">
+                        <a className="nav-link">Who We Serve</a>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link activeClassName="active" href="/features">
+                        <a className="nav-link">Our Technology Focus</a>
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link activeClassName="active" href="#">
+                        <a className="nav-link">Discover</a>
+                      </Link>
+                      <ul className="dropdown_menu">
+                        <li>
+                          <Link activeClassName="active" href="/about-one">
+                            <a>About</a>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link activeClassName="active" href="/team-one">
+                            <a>Leadership</a>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link activeClassName="active" href="/team-two">
+                            <a>Partner</a>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link activeClassName="active" href="/pricing-three">
+                            <a>Career</a>
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li className="nav-item">
+                      <Link activeClassName="active" href="#">
+                        <a className="nav-link">Resource</a>
+                      </Link>
+                      <ul className="dropdown_menu">
+                        <li>
+                          <Link activeClassName="active" href="/blog-one">
+                            <a>Blog</a>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link activeClassName="active" href="#">
+                            <a>Case Study</a>
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li className="nav-item">
+                      <Link activeClassName="active" href="/contact">
+                        <a className="nav-link">Contact</a>
+                      </Link>
+                    </li>
+                    {/* <li className="nav-item"><a href="#" className="nav-link">Pages</a>
                                             <ul className="dropdown_menu">
                                                 <li className="nav-item">
                                                     <Link activeClassName="active" href="#">
@@ -359,7 +352,7 @@ class Navbar extends React.Component {
                                             </ul>
                                         </li> */}
 
-                                        {/* <li className="nav-item">
+                    {/* <li className="nav-item">
                                             <Link activeClassName="active" href="#">
                                                 <a className="nav-link">Portfolio</a>
                                             </Link>
@@ -448,9 +441,9 @@ class Navbar extends React.Component {
                                                 <a className="nav-link">Contact</a>
                                             </Link>
                                         </li> */}
-                                    </ul>
-                                </div>
-                                {/* <div className="mr-auto others-option">
+                  </ul>
+                </div>
+                {/* <div className="mr-auto others-option">
                                     <ul className="navbar-nav">
                                         <li className="nav-item cart-wrapper">
                                             <Link activeClassName="active" href="#">
@@ -480,16 +473,20 @@ class Navbar extends React.Component {
                                         </li>
                                     </ul>
                                 </div> */}
-                            </nav>
-                        </div>
-                    </div>
-                </header>
+              </nav>
+            </div>
+          </div>
+        </header>
 
-                {this.state.drawer ? <SideDrawer onClick={this.handleDrawer} /> : ''}
-                {this.state.searchForm ? <SearchForm onClick={this.handleSearchForm} /> : ''}
-            </React.Fragment>
-        );
-    }
+        {this.state.drawer ? <SideDrawer onClick={this.handleDrawer} /> : ""}
+        {this.state.searchForm ? (
+          <SearchForm onClick={this.handleSearchForm} />
+        ) : (
+          ""
+        )}
+      </React.Fragment>
+    );
+  }
 }
 
 export default withRouter(Navbar);

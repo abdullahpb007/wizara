@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Link from "next/link";
-
+import ProductEngineering from "../Lottie/ProductEngineering";
+import ProcessAutomation from "../Lottie/processAutomation";
 class Overview extends Component {
   render() {
     return (
@@ -16,6 +17,7 @@ class Overview extends Component {
                   src={require("../../images/marketing-1.png")}
                   alt="image"
                 />
+                {/* <ProductEngineering /> */}
               </div>
 
               <div className="col-lg-6 col-md-6 overview-content">
@@ -34,7 +36,7 @@ class Overview extends Component {
                   <li>Product Architecture</li>
                   <li>Product Design</li>
                 </ul>
-                <Link href="#">
+                <Link href="./product-engineering">
                   <a className="btn btn-primary">Read More</a>
                 </Link>
               </div>
@@ -59,16 +61,17 @@ class Overview extends Component {
                   <li>Increase Service Quality</li>
                   <li>Improve Service Delivery</li>
                 </ul>
-                <Link href="#">
+                <Link href="./process-automation">
                   <a className="btn btn-primary">Read More</a>
                 </Link>
               </div>
 
               <div className="col-lg-6 col-md-6 overview-img">
-                <img
+                {/* <img
                   src={require("../../images/marketing-2.png")}
                   alt="image"
-                />
+                /> */}
+                <ProcessAutomation />
               </div>
             </div>
           </div>
