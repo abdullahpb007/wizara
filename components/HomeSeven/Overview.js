@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import ProductEngineering from "../Lottie/ProductEngineering";
+import ProductEngineering from "../Lottie/productEngineering";
 import ProcessAutomation from "../Lottie/processAutomation";
 class Overview extends Component {
   render() {
