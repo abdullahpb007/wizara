@@ -4,9 +4,10 @@
   "description": "Mojosa - React Next Landing Page Templates",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js -p $PORT",
+    "dev": "next -p 3005",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js -p $PORT"
+    "start": "next start -p 3030",
+    "now-build": "next build"
   },
   "keywords": [
     "next.js",
