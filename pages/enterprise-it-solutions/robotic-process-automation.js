@@ -3,7 +3,7 @@ import Navbar from "../../components/Layouts/Navbar";
 import PageBanner from "../../components/HomeSeven/PageBanner";
 import Footer from "../../components/Layouts/Footer";
 
-class SocialMediaApplication extends React.Component {
+class RoboticProcessAutomation extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -15,24 +15,20 @@ class SocialMediaApplication extends React.Component {
               <div className="col-lg-6 col-md-12">
                 <div className="about-content">
                   <div className="section-title">
-                    <h2>Enterprise Mobility Services</h2>
+                    <h2>Robotic Process Automation</h2>
                     <div className="bar" />
                     <p>
-                      Automate repetitive business processes to boost
-                      efficiency and ROI. WiZARA provides professional
-                      consultation and supportive software to digitize
-                      business processes, enabling efficiency at large
-                      scale.
+                      Automate repetitive business processes to boost efficiency
+                      and ROI WiZARA provides professional consultation and
+                      supportive software to digitize business processes,
+                      enabling efficiency at large scale.
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="col-lg-6 col-md-12">
-                <img
-                  src={require("../../images/marketing.png")}
-                  alt="image"
-                />
+                <img src={require("../../images/marketing.png")} alt="image" />
               </div>
             </div>
           </div>
@@ -96,4 +92,4 @@ class SocialMediaApplication extends React.Component {
   }
 }
 
-export default SocialMediaApplication;
+export default RoboticProcessAutomation;
