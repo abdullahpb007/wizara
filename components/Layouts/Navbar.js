@@ -108,7 +108,7 @@ class Navbar extends React.Component {
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link activeClassName="active" href="/features">
+                      <Link activeClassName="active" href="/our-technology-focus">
                         <a className="nav-link">Our Technology Focus</a>
                       </Link>
                     </li>
