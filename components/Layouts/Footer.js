@@ -85,33 +85,23 @@ class Footer extends React.Component {
 
                                 <ul className="list">
                                     <li>
-                                        <Link href="#">
-                                            <a>Integrations</a>
+                                        <Link href="/health-care">
+                                            Health care
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="#">
-                                            <a>API</a>
+                                        <Link href="/digital-commerce">
+                                            Digital Commerce
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="#">
-                                            <a>Pricing</a>
+                                        <Link href="/travel-and-transportation">
+                                            Travel and Transportation
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="#">
-                                            <a>Documentation</a>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="#">
-                                            <a>Sign Up</a>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="#">
-                                            <a>Release Notes</a>
+                                        <Link href="/real-estate">
+                                            Real Estate
                                         </Link>
                                     </li>
                                 </ul>
@@ -120,27 +110,27 @@ class Footer extends React.Component {
 
                         <div className="col-lg-3 col-md-6">
                             <div className="single-footer-widget">
-                                <h3>Support</h3>
+                                <h3>Discover</h3>
 
                                 <ul className="list">
-                                    <li>
+                                    <li>        
                                         <Link href="#">
                                             <a>About</a>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link href="#">
-                                            <a>Contact</a>
+                                            <a>Leadership</a>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link href="#">
-                                            <a>FAQ</a>
+                                            <a>Partner</a>
                                         </Link>
                                     </li>
                                     <li>
                                         <Link href="#">
-                                            <a>Press</a>
+                                            <a>Career</a>
                                         </Link>
                                     </li>
                                 </ul>
@@ -151,24 +141,9 @@ class Footer extends React.Component {
 
                 <div className="copyright-area">
                     <div className="container">
-                        <div className="row h-100 justify-content-center align-items-center">
+                        <div className="row h-100 justify-content-start align-items-center">
                             <div className="col-lg-6 col-md-6">
-                                <p>Copyright @ 2019 Crake. All rights reserved</p>
-                            </div>
-                            
-                            <div className="col-lg-6 col-md-6">
-                                <ul>
-                                    <li>
-                                        <Link href="#">
-                                            <a>Terms & Conditions</a>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="#">
-                                            <a>Privacy Policy</a>
-                                        </Link>
-                                    </li>
-                                </ul>
+                                <p>Copyright @ wizara 2019</p>
                             </div>
                         </div>
                     </div>
