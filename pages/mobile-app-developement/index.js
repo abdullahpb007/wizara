@@ -88,6 +88,14 @@ class Travel extends React.Component {
                         </div>
                         <h3>{val.title}</h3>
                         <p>{val.subtitle ? val.subtitle : ""}</p>
+                        {val.src && (
+                          <Link href={val.src || null}>
+                            <a className="read-more-btn">
+                              Read More
+                              <i className="icofont-rounded-double-right" />
+                            </a>
+                          </Link>
+                        )}
                       </div>
                     </Link>
                   </div>

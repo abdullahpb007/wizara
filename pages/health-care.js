@@ -48,34 +48,44 @@ class ProductEngineering extends React.Component {
                 {[
                   {
                     title: "EMR/EHR Solutions",
-                    subtitle: "Custom electronic health record software."
+                    subtitle: "Custom electronic health record software.",
+                    icon: "icofont-heart-beat-alt"
                   },
                   {
                     title: "FITNESS APP",
                     subtitle:
-                      " Fitness tracking mobile apps to track activities,weight, exercise routines, diabetes readings, and sleep patterns etc."
+                      " Fitness tracking mobile apps to track activities,weight, exercise routines, diabetes readings, and sleep patterns etc.",
+                    icon: "icofont-gym-alt-2"
                   },
                   {
                     title: "Healthcare Information Exchange",
                     subtitle:
-                      "Integrating the different stakeholders involved in a patient’s health decision on a common secure and stable platform allowing effective interaction and promoting collaboration."
+                      "Integrating the different stakeholders involved in a patient’s health decision on a common secure and stable platform allowing effective interaction and promoting collaboration.",
+                    icon: "icofont-injection-syringe"
                   },
                   {
                     title: "HOSPITAL & PRACTICE MANAGEMENT SOLUTIONS",
                     subtitle:
-                      "Custom HIS solutions for managing patient-physician interaction, resource scheduling, patient registration, custom reporting, and MIS reports etc."
+                      "Custom HIS solutions for managing patient-physician interaction, resource scheduling, patient registration, custom reporting, and MIS reports etc.",
+                    icon: "icofont-hospital"
                   },
                   {
                     title: "Tele-health Solutions",
                     subtitle:
-                      "Web portals and mobile apps that facilitate remote exchange of data between patients at home and their clinician to assist in diagnosis and monitoring."
+                      "Web portals and mobile apps that facilitate remote exchange of data between patients at home and their clinician to assist in diagnosis and monitoring.",
+                    icon: "icofont-stethoscope-alt"
                   },
-                  { title: "On-Demand Healthcare", subtitle: "  On-demand healthcare models like on-demand doorstep delivery, doctor on-demand or virtual pharmacists can overcome the problems of uneven distribution of clinicians." }
+                  {
+                    title: "On-Demand Healthcare",
+                    subtitle:
+                      "  On-demand healthcare models like on-demand doorstep delivery, doctor on-demand or virtual pharmacists can overcome the problems of uneven distribution of clinicians.",
+                    icon: "icofont-blood-test"
+                  }
                 ].map((val, ind) => (
                   <div className="col-lg-4 col-md-6" key={ind}>
                     <div className="single-services">
                       <div className="icon">
-                        <i className="icofont-music-note" />
+                        {<i className={val.icon} />}
                       </div>
                       <h3>{val.title}</h3>
                       <p>{val.subtitle ? val.subtitle : ""}</p>

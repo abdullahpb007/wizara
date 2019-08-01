@@ -51,7 +51,8 @@ class Travel extends React.Component {
                     title: "Robotic Process Automation",
                     subtitle:
                       "Get professional consultation and supportive software to digitize your workforce, enabling efficiency at large scale.",
-                      src: "/enterprise-it-solutions/robotic-process-automation"
+                    src:
+                      "/enterprise-it-solutions/robotic-process-automation"
                   }
                 ].map((val, ind) => (
                   <div className="col-lg-4 col-md-6" key={ind}>
@@ -62,6 +63,14 @@ class Travel extends React.Component {
                         </div>
                         <h3>{val.title}</h3>
                         <p>{val.subtitle ? val.subtitle : ""}</p>
+                        {val.src && (
+                          <Link href={val.src || null}>
+                            <a className="read-more-btn">
+                              Read More
+                              <i className="icofont-rounded-double-right" />
+                            </a>
+                          </Link>
+                        )}
                       </div>
                     </Link>
                   </div>

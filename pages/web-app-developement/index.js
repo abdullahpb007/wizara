@@ -19,18 +19,21 @@ class WebAppDevelopement extends React.Component {
                     <h2>Web App Development Company</h2>
                     <div className="bar" />
                     <p>
-                      Develop fluidly responsive and performance obsessed web
-                      applications. Build reactive, scalable and real time web
-                      applications in a most optimal time frame and investments
-                      by leveraging dynamic technologies, modern design patterns
-                      and agile methodologies.
+                      Develop fluidly responsive and performance obsessed
+                      web applications. Build reactive, scalable and real
+                      time web applications in a most optimal time frame and
+                      investments by leveraging dynamic technologies, modern
+                      design patterns and agile methodologies.
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="col-lg-6 col-md-12">
-                <img src={require("../../images/marketing.png")} alt="image" />
+                <img
+                  src={require("../../images/marketing.png")}
+                  alt="image"
+                />
               </div>
             </div>
           </div>
@@ -68,8 +71,9 @@ class WebAppDevelopement extends React.Component {
                   {
                     title: "Software Maintenance and Support",
                     subtitle:
-                      "Preventive and pro-active software maintenance and support services to ensure that your application stays in line with the latest technologies and features."
-                      ,src:"/web-app-developement/software-maintenance-and-support"
+                      "Preventive and pro-active software maintenance and support services to ensure that your application stays in line with the latest technologies and features.",
+                    src:
+                      "/web-app-developement/software-maintenance-and-support"
                   }
                 ].map((val, ind) => (
                   <div className="col-lg-4 col-md-6" key={ind}>
@@ -80,6 +84,14 @@ class WebAppDevelopement extends React.Component {
                         </div>
                         <h3>{val.title}</h3>
                         <p>{val.subtitle ? val.subtitle : ""}</p>
+                        {val.src && (
+                          <Link href={val.src || null}>
+                            <a className="read-more-btn">
+                              Read More
+                              <i className="icofont-rounded-double-right" />
+                            </a>
+                          </Link>
+                        )}
                       </div>
                     </Link>
                   </div>

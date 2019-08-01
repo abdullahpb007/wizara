@@ -69,6 +69,14 @@ class Technology extends Component {
                       </div>
                       <h3>{e.title}</h3>
                       <p>{e.caption}</p>
+                      {e.src && (
+                        <Link href={e.src || null}>
+                          <a className="read-more-btn">
+                            Read More
+                            <i className="icofont-rounded-double-right" />
+                          </a>
+                        </Link>
+                      )}
                     </div>
                   </Link>
                 </div>
